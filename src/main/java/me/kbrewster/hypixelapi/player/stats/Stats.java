@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import lombok.Getter;
 import me.kbrewster.hypixelapi.player.stats.arena.Arena;
 import me.kbrewster.hypixelapi.player.stats.battlegrounds.BattleGrounds;
+import me.kbrewster.hypixelapi.player.stats.duels.Dules;
 import me.kbrewster.hypixelapi.player.stats.megawalls.Walls3;
 import me.kbrewster.hypixelapi.player.stats.mm.MurderMystery;
 import me.kbrewster.hypixelapi.player.stats.skyclash.SkyClash;
@@ -46,6 +47,8 @@ public class Stats {
     @Expose
     private MurderMystery MurderMystery;
     @Expose
+    private Dules Duels;
+    @Expose
     private me.kbrewster.hypixelapi.player.stats.bedwars.Bedwars Bedwars;
     @Expose
     private me.kbrewster.hypixelapi.player.stats.paintball.Paintball Paintball;
@@ -56,5 +59,50 @@ public class Stats {
     @Expose
     private SkyClash SkyClash;
 
-
+    public BasicStats getGame(String game) {
+        switch (game.toLowerCase()) {
+            case "arcade":
+                return Arcade;
+            case "arena":
+                return Arena;
+            case "battleground":
+                return Battleground;
+            case "hungergames":
+                return HungerGames;
+            case "mcgo":
+                return MCGO;
+            case "quake":
+                return Quake;
+            case "tntgames":
+                return TNTGames;
+            case "uhc":
+                return UHC;
+            case "skywars":
+                return SkyWars;
+            case "gingerbread":
+                return GingerBread;
+            case "supersmash":
+                return SuperSmash;
+            case "walls":
+                return Walls;
+            case "walls3":
+                return Walls3;
+            case "murdermystery":
+                return MurderMystery;
+            case "duels":
+                return Duels;
+            case "bedwars":
+                return Bedwars;
+            case "paintball":
+                return Paintball;
+            case "vampirez":
+                return VampireZ;
+            case "speeduhc":
+                return SpeedUHC;
+            case "skyclash":
+                return SkyClash;
+            default:
+                return null;
+        }
+    }
 }

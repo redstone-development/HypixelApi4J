@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.uhc;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class UHC {
+public class UHC implements BasicStats {
 
     @SerializedName("coins")
     @Expose
@@ -172,5 +173,9 @@ public class UHC {
     @Expose
     private long perkToolsmithingLineC;
 
+    @Override
+    public long getGamesPlayed() {
+        return wins + deaths;
+    }
 }
 

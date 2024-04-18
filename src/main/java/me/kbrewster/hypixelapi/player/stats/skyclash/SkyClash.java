@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.skyclash;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class SkyClash {
+public class SkyClash implements BasicStats {
     @SerializedName("active_class")
     @Expose
     private long activeClass;

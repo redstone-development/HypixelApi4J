@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.mcgo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class MCGO {
+public class MCGO implements BasicStats {
 
     @SerializedName("body_armor_cost")
     @Expose 
@@ -291,5 +292,14 @@ public class MCGO {
     @SerializedName("game_wins_reserve")
     @Expose 
     private long gameWinsReserve;
-    
+
+    @Override
+    public long getWins() {
+        return gameWins;
+    }
+
+    @Override
+    public long getGamesPlayed() {
+        return gameWins + deaths;
+    }
 }

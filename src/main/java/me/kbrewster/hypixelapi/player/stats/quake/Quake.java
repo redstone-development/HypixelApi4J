@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.quake;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Quake {
+public class Quake implements BasicStats {
 
     @SerializedName("barrel")
     @Expose
@@ -145,4 +146,8 @@ public class Quake {
     @Expose
     private boolean showDashCooldown;
 
+    @Override
+    public long getGamesPlayed() {
+        return wins;
+    }
 }

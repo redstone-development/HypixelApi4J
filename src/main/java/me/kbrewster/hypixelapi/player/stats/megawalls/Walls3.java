@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.megawalls;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Walls3 {
+public class Walls3 implements BasicStats {
 
     @SerializedName("chosen_class")
     @Expose

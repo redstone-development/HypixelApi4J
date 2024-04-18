@@ -4,11 +4,12 @@ package me.kbrewster.hypixelapi.player.stats.hg;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class HungerGames {
+public class HungerGames implements BasicStats {
 
     @SerializedName("archer")
     @Expose 
@@ -92,4 +93,8 @@ public class HungerGames {
     @Expose 
     private boolean combatTracker;
 
+    @Override
+    public long getGamesPlayed() {
+        return wins + deaths;
+    }
 }

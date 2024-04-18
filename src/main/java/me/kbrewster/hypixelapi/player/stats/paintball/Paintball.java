@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.paintball;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Paintball {
+public class Paintball implements BasicStats {
 
     @SerializedName("coins")
     @Expose
@@ -76,4 +77,8 @@ public class Paintball {
     @Expose
     private long votesMansion;
 
+    @Override
+    public long getGamesPlayed() {
+        return wins + deaths;
+    }
 }

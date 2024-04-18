@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.smash;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class SuperSmash {
+public class SuperSmash implements BasicStats {
 
     @SerializedName("smashLevel")
     @Expose
@@ -406,4 +407,8 @@ public class SuperSmash {
     @Expose
     public HeroLevelBooster heroLevelBoosterActive;
 
+    @Override
+    public long getGamesPlayed() {
+        return games;
+    }
 }

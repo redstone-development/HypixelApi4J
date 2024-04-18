@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.vampz;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class VampireZ {
+public class VampireZ implements BasicStats {
 
     @SerializedName("coins")
     @Expose
@@ -151,4 +152,23 @@ public class VampireZ {
     @Expose
     private boolean updatedStats;
 
+    @Override
+    public long getWins() {
+        return humanWins;
+    }
+
+    @Override
+    public long getKills() {
+        return humanKills;
+    }
+
+    @Override
+    public long getDeaths() {
+        return humanDeaths;
+    }
+
+    @Override
+    public long getGamesPlayed() {
+        return humanWins + humanDeaths;
+    }
 }

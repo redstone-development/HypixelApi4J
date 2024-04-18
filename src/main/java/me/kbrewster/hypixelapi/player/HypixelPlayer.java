@@ -66,9 +66,9 @@ public class HypixelPlayer {
     @SerializedName("newClock")
     @Expose
     private String newClock;
-  //  @SerializedName("parkourCompletions")
-   // @Expose
-  //  private ParkourCompletions parkourCompletions;
+    @SerializedName("parkourCompletions")
+    @Expose
+    private ParkourCompletions parkourCompletions;
     @SerializedName("playername")
     @Expose
     private String playername;

@@ -3,11 +3,12 @@ package me.kbrewster.hypixelapi.player.stats.speeduhc;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class SpeedUHC {
+public class SpeedUHC implements BasicStats {
 
     @SerializedName("packages")
     @Expose
@@ -348,4 +349,9 @@ public class SpeedUHC {
     @SerializedName("kills_monthly_b")
     @Expose
     private long killsMonthlyB;
+
+    @Override
+    public long getGamesPlayed() {
+        return games;
+    }
 }

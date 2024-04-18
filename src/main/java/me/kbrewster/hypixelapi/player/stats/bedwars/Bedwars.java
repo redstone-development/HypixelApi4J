@@ -4,11 +4,12 @@ package me.kbrewster.hypixelapi.player.stats.bedwars;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Bedwars {
+public class Bedwars implements BasicStats {
 
     @SerializedName("bedwars_boxes")
     @Expose
@@ -567,4 +568,23 @@ public class Bedwars {
     @Expose
     @Getter private long fourFourProjectileDeathsBedwars;
 
+    @Override
+    public long getWins() {
+        return winsBedwars;
+    }
+
+    @Override
+    public long getKills() {
+        return killsBedwars;
+    }
+
+    @Override
+    public long getDeaths() {
+        return deathsBedwars;
+    }
+
+    @Override
+    public long getGamesPlayed() {
+        return gamesPlayedBedwars;
+    }
 }

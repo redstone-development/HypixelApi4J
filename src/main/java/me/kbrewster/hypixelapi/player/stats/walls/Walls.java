@@ -4,11 +4,12 @@ package me.kbrewster.hypixelapi.player.stats.walls;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Walls {
+public class Walls implements BasicStats {
 
     @SerializedName("coins")
     @Expose
@@ -237,4 +238,8 @@ public class Walls {
     private long weeklyAssistsA;
 
 
+    @Override
+    public long getGamesPlayed() {
+        return wins + losses;
+    }
 }

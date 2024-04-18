@@ -52,12 +52,17 @@ public class HypixelAPI extends API {
 
     /**
      * Gets [name]'s Hypixel player information
-     * @param name The player you want to get the information of
+     * @param name The player you want to get the information of or their UUID
      * @throws APIException API Key is invalid
      * @throws InvalidPlayerException HypixelPlayer Name does not exist
      * @throws IOException Error reading json
      */
     public HypixelPlayer getPlayer(String name) throws APIException, InvalidPlayerException, IOException {
+        try {
+            UUID uuid = UUID.fromString(name);
+            return getPlayer(uuid);
+        } catch (IllegalArgumentException ignored) {}
+
         Gson gson = new Gson();
         String url = String.format(BASE_URL + "/player?name=%s&key=%s", name, key);
         JsonObject json = readJsonUrl(url);

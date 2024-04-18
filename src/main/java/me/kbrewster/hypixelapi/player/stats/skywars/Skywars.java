@@ -4,11 +4,12 @@ package me.kbrewster.hypixelapi.player.stats.skywars;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class Skywars {
+public class Skywars implements BasicStats {
 
     @SerializedName("coins")
     @Expose
@@ -3310,4 +3311,8 @@ public class Skywars {
     @Expose
     private long assistsLabKitBasicSoloScout;
 
+    @Override
+    public long getGamesPlayed() {
+        return games;
+    }
 }

@@ -4,6 +4,7 @@ package me.kbrewster.hypixelapi.player.stats.arena;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * JSON Class to parse Arcade Stats
  */
 @Getter
-public class Arena {
+public class Arena implements BasicStats {
 
     @SerializedName("coins")
     @Expose 
@@ -137,4 +138,28 @@ public class Arena {
     @Expose 
     private long wins4v4;
 
+    @Override
+    public long getWins() {
+        return wins2v2 + wins4v4;
+    }
+
+    @Override
+    public long getKills() {
+        return damage1v1 + damage2v2 + damage4v4;
+    }
+
+    @Override
+    public long getDeaths() {
+        return deaths1v1 + deaths2v2 + deaths4v4;
+    }
+
+    @Override
+    public long getCoins() {
+        return coins;
+    }
+
+    @Override
+    public long getGamesPlayed() {
+        return games1v1 + games2v2 + games4v4;
+    }
 }

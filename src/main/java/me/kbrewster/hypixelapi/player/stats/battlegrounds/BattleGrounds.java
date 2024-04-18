@@ -3,11 +3,15 @@ package me.kbrewster.hypixelapi.player.stats.battlegrounds;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
+/**
+ * JSON Class to parse BattleGrounds Stats
+ */
 @Getter
-public class BattleGrounds {
+public class BattleGrounds implements BasicStats {
 
     @SerializedName("afk_warned")
     @Expose 
@@ -598,5 +602,29 @@ public class BattleGrounds {
     @Expose 
     private long winsAquamancer;
 
+    @Override
+    public long getWins() {
+        return wins;
+    }
+
+    @Override
+    public long getKills() {
+        return kills;
+    }
+
+    @Override
+    public long getDeaths() {
+        return deaths;
+    }
+
+    @Override
+    public long getCoins() {
+        return coins;
+    }
+
+    @Override
+    public long getGamesPlayed() {
+        return wins + losses;
+    }
 }
 

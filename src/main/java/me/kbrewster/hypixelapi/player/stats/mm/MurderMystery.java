@@ -4,11 +4,12 @@ package me.kbrewster.hypixelapi.player.stats.mm;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import me.kbrewster.hypixelapi.player.stats.BasicStats;
 
 import java.util.List;
 
 @Getter
-public class MurderMystery {
+public class MurderMystery implements BasicStats {
 
     @SerializedName("murdermystery_books")
     @Expose
@@ -833,4 +834,8 @@ public class MurderMystery {
     @Expose
     private long wasHeroHypixelWorld;
 
+    @Override
+    public long getGamesPlayed() {
+        return games;
+    }
 }
